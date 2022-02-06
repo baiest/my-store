@@ -48,4 +48,8 @@ export class ProductsListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onAddToShoppingCart(product: Product){
+    console.log(product)
+  }
 }
