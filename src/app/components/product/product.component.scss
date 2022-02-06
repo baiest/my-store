@@ -1,0 +1,21 @@
+.card-product {
+    margin: 10px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    overflow: hidden;
+}
+
+.card-product img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-description {
+    padding: 10px;
+}
+
+.card-description p,
+.card-description h2 {
+    margin: 0;
+}

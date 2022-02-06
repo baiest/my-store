@@ -1,0 +1,28 @@
+<nav class="mobile">
+    <button (click)="toogleMenu()"><img src="../../../assets/svg/icon_menu.svg" alt="menu"></button>
+    <a href=""><img src="../../../assets/svg/logo_yard_sale.svg" alt="logo"></a>
+    <a href=""><img src="../../../assets/svg/icon_shopping_cart.svg" alt="info"></a>
+    <section class="side-menu" [class.active]="activeMenu">
+        <ul>
+            <button (click)="toogleMenu()">Close</button>
+            <li><a href="">All</a></li>
+            <li><a href="">Clothes</a></li>
+            <li><a href="">Electronics</a></li>
+        </ul>
+    </section>
+</nav>
+
+<nav class="hide-mobile">
+    <section class="left-menu">
+        <a href=""><img src="../../../assets/svg/logo_yard_sale.svg" alt="logo"></a>
+        <ul class="menu">
+            <li><a href="">All</a></li>
+            <li><a href="">Clothes</a></li>
+            <li><a href="">Electronics</a></li>
+        </ul>
+    </section>
+    <section class="info">
+        <span>juanballesteros2001@gmail.com</span>
+        <a href=""><img src="../../../assets/svg/icon_shopping_cart.svg" alt="info"></a>
+    </section>
+</nav>
