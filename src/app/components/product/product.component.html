@@ -1,8 +1,10 @@
 <div class="card-product">
-    <img [src]="product.image" alt="imagén del producto">
+    <picture class="card-product__image">
+        <img [src]="product.image" alt="imagén del producto">
+    </picture>
     <section class="card-description">
         <h2>{{ product.price }}</h2>
-        <p>{{ product.name }}</p>
+        <p>{{ product.title | slice:0:40}}{{product.title.length > 40 && '...'}}</p>
         <button (click)="onAddToCart()">Add Cart</button>
     </section>
 </div>
