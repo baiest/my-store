@@ -1,3 +1,15 @@
+<button (click)="createNewProduct()">abrir</button>
 <section class="container-products-list">
-    <app-product *ngFor="let product of products" [product]="product" (addEventProduct)="onAddToShoppingCart($event)"></app-product>
+  <app-product *ngFor="let product of products" [product]="product" (addEventProduct)="onAddToShoppingCart($event)" (showProductDetail)="onShowDetail($event)"></app-product>
 </section>
+<article class="product__detail" [class.active]="showProductDetail">
+  <div *ngIf="productChoosen">
+    <button (click)="toggleProductDetail()">close x</button>
+    <h2>{{ productChoosen.title }}</h2>
+    <swiper [slidesPerView]="1">
+      <ng-template swiperSlide *ngFor="let image of productChoosen.images">
+        <img [src]="image" alt="">
+      </ng-template>
+    </swiper>
+  </div>
+</article>

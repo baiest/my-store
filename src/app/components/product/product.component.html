@@ -1,10 +1,11 @@
 <div class="card-product">
-    <picture class="card-product__image">
-        <img [src]="product.image" alt="imagén del producto">
-    </picture>
-    <section class="card-description">
-        <h2>{{ product.price }}</h2>
-        <p>{{ product.title | slice:0:40}}{{product.title.length > 40 && '...'}}</p>
-        <button (click)="onAddToCart()">Add Cart</button>
-    </section>
+  <picture class="card-product__image">
+    <img *ngIf="product.images.length > 0" [src]="product.images[0]" alt="imagén del producto">
+  </picture>
+  <section class="card-description">
+    <h2>{{ product.price }}</h2>
+    <p>{{ product.title | slice:0:40}}{{product.title.length > 40 && '...'}}</p>
+    <button (click)="onAddToCart()">Add Cart</button>
+    <button (click)="showDetail()">Ver detalle</button>
+  </section>
 </div>
