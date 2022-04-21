@@ -1,4 +1,4 @@
-import { CreateProductDTO } from './../../models/product.model';
+import { CreateProductDTO, UpdateProductDTO } from './../../models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { Product, DefaultProduct } from 'src/app/models/product.model';
 import { StoreService } from './../../services/store.service';
@@ -52,7 +52,8 @@ export class ProductsListComponent implements OnInit {
   myShoppingCart : Product [] = []
   showProductDetail = false
   productChoosen: Product = DefaultProduct
-  
+  limit = 10
+  offset = 0
   constructor(
     private storeService: StoreService,
     private productsService: ProductsService
@@ -61,10 +62,7 @@ export class ProductsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productsService.getAllProducts()
-      .subscribe(data => {
-        this.products = data
-      })
+    this.loadMore()
   }
 
   onAddToShoppingCart(product: Product){
@@ -95,6 +93,36 @@ export class ProductsListComponent implements OnInit {
     this.productsService.create(product)
       .subscribe(data => {
         this.products.unshift(data)
+      })
+  }
+  
+  updateProduct(){
+    const changes: UpdateProductDTO = {
+      title: 'titulo cambiado'
+    }
+    const id = this.productChoosen.id
+    this.productsService.update(id, changes)
+      .subscribe(data => {
+        const productIndex = this.products.findIndex(item => item.id === this.productChoosen.id)
+        this.products[productIndex] = data
+      })
+  }
+  
+  deleteProduct() {
+    const id = this.productChoosen.id
+    this.productsService.delete(id)
+      .subscribe(() => {
+        const productIndex = this.products.findIndex(item => item.id === this.productChoosen.id)
+        this.products.splice(productIndex, 1)
+        this.showProductDetail = false
+      })
+  }
+  
+  loadMore() {
+    this.productsService.getProductsByPage(this.limit, this.limit)
+      .subscribe(data => {
+        this.products = [...this.products, ...data]
+        this.offset += this.limit
       })
   }
 }

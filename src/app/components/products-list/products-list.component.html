@@ -2,14 +2,18 @@
 <section class="container-products-list">
   <app-product *ngFor="let product of products" [product]="product" (addEventProduct)="onAddToShoppingCart($event)" (showProductDetail)="onShowDetail($event)"></app-product>
 </section>
+<button (click)="loadMore()">Load More...</button>
 <article class="product__detail" [class.active]="showProductDetail">
   <div *ngIf="productChoosen">
     <button (click)="toggleProductDetail()">close x</button>
     <h2>{{ productChoosen.title }}</h2>
     <swiper [slidesPerView]="1">
       <ng-template swiperSlide *ngFor="let image of productChoosen.images">
-        <img [src]="image" alt="">
+        <img [src]="image" alt="" width="250px">
       </ng-template>
     </swiper>
+    <p>{{ productChoosen.description }}</p>
+    <button (click)="updateProduct()">Editar</button>
+    <button (click)="deleteProduct()">Borrar</button>
   </div>
 </article>

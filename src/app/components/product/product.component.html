@@ -4,7 +4,7 @@
   </picture>
   <section class="card-description">
     <h2>{{ product.price }}</h2>
-    <p>{{ product.title | slice:0:40}}{{product.title.length > 40 && '...'}}</p>
+    <p>{{ product.title | slice:0:40}}{{product.title.length > 40 ? '...' : ''}}</p>
     <button (click)="onAddToCart()">Add Cart</button>
     <button (click)="showDetail()">Ver detalle</button>
   </section>
