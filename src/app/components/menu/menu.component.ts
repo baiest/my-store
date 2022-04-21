@@ -10,7 +10,6 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
   activeMenu = false
-  token = ''
   user : User | null = null
   constructor(
     private authService: AuthService,
@@ -29,7 +28,6 @@ export class MenuComponent {
   }
   
   logOut(){
-    this.token = ''
     this.user = null
   }
   

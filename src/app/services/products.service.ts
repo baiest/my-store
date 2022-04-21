@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product, CreateProductDTO, UpdateProductDTO } from './../models/product.model';
+import { checkTime } from '../interceptor/time.interceptor';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +19,8 @@ export class ProductsService {
       params: {
         limit,
         offset
-      }
+      },
+      context: checkTime()
     })
   }
   
