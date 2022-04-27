@@ -1,4 +1,4 @@
-<div class="card-product">
+<a [routerLink]="['/product', product.id]" class="card-product">
   <picture class="card-product__image">
     <img *ngIf="product.images.length > 0" [src]="product.images[0]" alt="imagén del producto">
   </picture>
@@ -8,4 +8,4 @@
     <button (click)="onAddToCart()">Add Cart</button>
     <button (click)="showDetail()">Ver detalle</button>
   </section>
-</div>
+</a>
