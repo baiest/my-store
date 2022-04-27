@@ -1,8 +1,9 @@
-import { Category } from './../../models/product.model';
-import { CategoryService } from './../../services/category.service';
-import { User } from './../../models/user.model';
-import { UsersService } from './../../services/users.service';
-import { AuthService } from './../../services/auth.service';
+import { CategoryService } from './../../../services/category.service';
+import { UsersService } from './../../../services/users.service';
+import { AuthService } from './../../../services/auth.service';
+import { Category } from './../../../models/product.model';
+import { User } from './../../../models/user.model';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

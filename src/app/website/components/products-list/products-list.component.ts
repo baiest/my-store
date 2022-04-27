@@ -1,8 +1,8 @@
-import { CreateProductDTO, UpdateProductDTO } from './../../models/product.model';
+import { CreateProductDTO, UpdateProductDTO } from './../../../models/product.model';
+import { ProductsService } from './../../../services/products.service';
+import { StoreService } from './../../../services/store.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product, DefaultProduct } from 'src/app/models/product.model';
-import { StoreService } from './../../services/store.service';
-import { ProductsService } from './../../services/products.service';
 
 @Component({
   selector: 'app-products-list',

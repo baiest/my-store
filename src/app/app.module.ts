@@ -1,3 +1,15 @@
+import { ProductDetailComponent } from './website/pages/product-detail/product-detail.component';
+import { ProfileComponent } from './website/pages/profile/profile.component';
+import { RecoveryComponent } from './website/pages/recovery/recovery.component';
+import { RegisterComponent } from './website/pages/register/register.component';
+import { LoginComponent } from './website/pages/login/login.component';
+import { MyCartComponent } from './website/pages/my-cart/my-cart.component';
+import { CategoryComponent } from './website/pages/category/category.component';
+import { NotFoundComponent } from './website/pages/not-found/not-found.component';
+import { HomeComponent } from './website/pages/home/home.component';
+import { MenuComponent } from './website/components/menu/menu.component';
+import { ProductsListComponent } from './website/components/products-list/products-list.component';
+import { ProductComponent } from './website/components/product/product.component';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { TimeInterceptor } from './interceptor/time.interceptor';
 import { NgModule } from '@angular/core';
@@ -7,18 +19,8 @@ import { SwiperModule } from 'swiper/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { ProductComponent } from './components/product/product.component';
-import { ProductsListComponent } from './components/products-list/products-list.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { HomeComponent } from './pages/home/home.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { CategoryComponent } from './pages/category/category.component';
-import { MyCartComponent } from './pages/my-cart/my-cart.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { RecoveryComponent } from './pages/recovery/recovery.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { LayoutComponent } from './website/components/layout/layout.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,8 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
     RegisterComponent,
     RecoveryComponent,
     ProfileComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
