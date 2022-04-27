@@ -1,3 +1,5 @@
+import { SwiperModule } from 'swiper/angular';
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { WebsiteRoutingModule } from './website-routing.module';
 
@@ -11,10 +13,7 @@ import { MyCartComponent } from './pages/my-cart/my-cart.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { ProductsListComponent } from './components/products-list/products-list.component';
-import { ProductComponent } from './components/product/product.component';
 import { LayoutComponent } from './components/layout/layout.component';
-import { SwiperModule } from 'swiper/angular';
 
 
 
@@ -29,13 +28,12 @@ import { SwiperModule } from 'swiper/angular';
     CategoryComponent,
     HomeComponent,
     MenuComponent,
-    ProductsListComponent,
-    ProductComponent,
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     CommonModule,
     WebsiteRoutingModule,
+    SharedModule,
     SwiperModule
   ]
 })
