@@ -12,6 +12,11 @@ import { ProductsService } from './../../services/products.service';
 export class ProductsListComponent {
   @Input() products: Product[] = []
   @Output() showMoreProducts = new EventEmitter()
+  @Input() set productId(id: string | null) {
+    if(id){
+      this.onShowDetail(id)
+    }
+  }
   myShoppingCart : Product [] = []
   showProductDetail = false
   productChoosen: Product = DefaultProduct

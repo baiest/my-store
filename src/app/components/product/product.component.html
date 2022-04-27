@@ -1,11 +1,11 @@
-<a [routerLink]="['/product', product.id]" class="card-product">
-  <picture class="card-product__image">
+<div class="card-product">
+  <a [routerLink]="['/product', product.id]" class="card-product__image">
     <img *ngIf="product.images.length > 0" [src]="product.images[0]" alt="imagén del producto">
-  </picture>
+  </a>
   <section class="card-description">
     <h2>{{ product.price }}</h2>
     <p>{{ product.title | slice:0:40}}{{product.title.length > 40 ? '...' : ''}}</p>
     <button (click)="onAddToCart()">Add Cart</button>
-    <button (click)="showDetail()">Ver detalle</button>
+    <a routerLink='.' [queryParams]="{ product: product.id}" (click)="showDetail()">Ver detalle</a>
   </section>
-</a>
+</div>
