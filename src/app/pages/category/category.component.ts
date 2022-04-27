@@ -31,7 +31,8 @@ export class CategoryComponent implements OnInit {
       })
     ).subscribe(data => {
       this.products = data
-      this.offset += this.limit
+      this.limit = 10
+      this.offset = 0
     })
   }
   

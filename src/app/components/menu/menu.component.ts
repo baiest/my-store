@@ -1,21 +1,28 @@
+import { Category } from './../../models/product.model';
+import { CategoryService } from './../../services/category.service';
 import { User } from './../../models/user.model';
 import { UsersService } from './../../services/users.service';
 import { AuthService } from './../../services/auth.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
   activeMenu = false
   user : User | null = null
+  categories: Category[] = []
   constructor(
     private authService: AuthService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private categoryService: CategoryService
   ) { }
-
+    
+  ngOnInit(): void{
+    this.categoryService.getAll().subscribe(data => this.categories = data)
+  }
   toogleMenu() {
     this.activeMenu = !this.activeMenu
   }
