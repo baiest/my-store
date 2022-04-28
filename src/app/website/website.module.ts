@@ -10,11 +10,10 @@ import { RecoveryComponent } from './pages/recovery/recovery.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MyCartComponent } from './pages/my-cart/my-cart.component';
-import { CategoryComponent } from './pages/category/category.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { LayoutComponent } from './components/layout/layout.component';
-
+import { QuicklinkModule } from 'ngx-quicklink';
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { LayoutComponent } from './components/layout/layout.component';
     RegisterComponent,
     LoginComponent,
     MyCartComponent,
-    CategoryComponent,
     HomeComponent,
     MenuComponent,
     LayoutComponent,
@@ -34,7 +32,8 @@ import { LayoutComponent } from './components/layout/layout.component';
     CommonModule,
     WebsiteRoutingModule,
     SharedModule,
-    SwiperModule
+    SwiperModule,
+    QuicklinkModule
   ]
 })
 export class WebsiteModule { }
