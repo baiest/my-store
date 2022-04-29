@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { CustomPreloadService } from './services/custom-preload.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NgModule } from '@angular/core';
@@ -13,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'cms',
-    loadChildren: () => import('./cms/cms.module').then(m => m.CmsModule)
+    loadChildren: () => import('./cms/cms.module').then(m => m.CmsModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
