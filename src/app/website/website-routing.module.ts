@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LayoutComponent } from './components/layout/layout.component';
 
+import { AuthGuard } from '../guards/auth.guard';
 const routes: Routes = [ {
   path: '',
   component: LayoutComponent,
@@ -38,7 +39,8 @@ const routes: Routes = [ {
     },
     {
       path: 'profile',
-      component: ProfileComponent
+      component: ProfileComponent,
+      canActivate: [AuthGuard]
     },
     {
       path: 'cart',

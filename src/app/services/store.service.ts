@@ -6,6 +6,7 @@ import { Product } from './../models/product.model';
 })
 export class StoreService {
   private myShoppingCart : Product[] = []
+
   constructor() { }
 
   getMyShoppingCart() : Product[] {

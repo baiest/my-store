@@ -4,7 +4,7 @@ import { Auth } from './../models/auth.model';
 import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { switchMap, tap } from 'rxjs';
+import { BehaviorSubject, switchMap, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,10 @@ import { switchMap, tap } from 'rxjs';
 export class AuthService {
   
   private apiUrl = `${environment.API_URL}/api/auth`
+  private user = new BehaviorSubject<User | null>(null)
+  
+  user$ = this.user.asObservable()
+  
   constructor(
     private http: HttpClient,
     private tokenService: TokenService
@@ -27,5 +31,12 @@ export class AuthService {
   
   profile() {
     return this.http.get<User>(`${this.apiUrl}/profile`)
+      .pipe(
+        tap(user => this.user.next(user))
+      )
+  }
+  
+  logOut(){
+    this.tokenService.removeToken()
   }
 }

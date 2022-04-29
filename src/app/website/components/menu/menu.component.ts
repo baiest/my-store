@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CategoryService } from './../../../services/category.service';
 import { UsersService } from './../../../services/users.service';
 import { AuthService } from './../../../services/auth.service';
@@ -18,11 +19,14 @@ export class MenuComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private usersService: UsersService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private router: Router
   ) { }
     
   ngOnInit(): void{
     this.categoryService.getAll().subscribe(data => this.categories = data)
+    this.authService.user$
+      .subscribe(user => this.user = user)
   }
   toogleMenu() {
     this.activeMenu = !this.activeMenu
@@ -31,12 +35,14 @@ export class MenuComponent implements OnInit {
   login(){
     this.authService.loginAndGetProfile('maria@mail.com', '12345')
       .subscribe(res => {
-        this.user = res
+        this.router.navigate(['/profile'])
       })
   }
   
   logOut(){
     this.user = null
+    this.authService.logOut()
+    this.router.navigate(['/home'])
   }
   
   users(){
