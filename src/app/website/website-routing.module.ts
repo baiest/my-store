@@ -1,3 +1,4 @@
+import { ExitGuard } from './../guards/exit.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
@@ -31,7 +32,8 @@ const routes: Routes = [ {
     },
     {
       path: 'register',
-      component: RegisterComponent
+      component: RegisterComponent,
+      canDeactivate: [ExitGuard]
     },
     {
       path: 'recovery',
